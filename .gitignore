@@ -1,4 +1,4 @@
-
+/node_modules
 /*.env
 
 DATABASE_URL= postgres://klvvnoaabloier:K-cI6ogoAFM3WkNtW3_qLenUH2@ec2-54-235-152-114.compute-1.amazonaws.com:5432/daimud763ujmh8
