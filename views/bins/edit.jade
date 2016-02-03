@@ -3,10 +3,10 @@ extends ../layout
 
 append body
 	.container
-		h1= title
+		h1 Bin Edit Page
 		if bin
 			h1 Bin Title: #{bin.title}
 			h1 Bin Description: #{bin.description}
 			h1 
-				a(href='#{bin.id}/edit') Edit Link
+				a(href='/ventures/#{bin.venture_id}/bins/#{bin.id}') Cancel
 			

@@ -10,7 +10,9 @@ return knex('ventures');
 }
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: '*****this page is the: /ventures page' });
+  Ventures().then(function (results) {
+    res.render('ventures/index', {ventures: results});
+  })
 });
 router.get('/:id', function(req, res, next) {
   res.render('index', { title: '******this page is the: /ventures/:id page' });

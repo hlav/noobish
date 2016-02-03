@@ -1,10 +1,8 @@
-/node_modules
+node_modules
 /*.env
 
 DATABASE_URL= postgres://klvvnoaabloier:K-cI6ogoAFM3WkNtW3_qLenUH2@ec2-54-235-152-114.compute-1.amazonaws.com:5432/daimud763ujmh8
-
 AMAZON_KEY = 'AKIAJVTAUXOMIYDSV6JQ', 'YcCjk/BzE+r7/8xodhbSav7DaINQ25ltjQekeZcT', 'noobish-20'
-
 SESSION_KEY1=d7517bfc080797fac7fe952c9d6eb7e4525fbbee63bd458286bc5ec2cd224149949329df38cbea2c092710f3fdf0e200
 SESSION_KEY2=9298369c86ee8e65ebbdcd95d4816aeda23bee16abeca7088127883b5883d1f18d0067acb016683f347eeee4dd6ba92f
 HOST=http://localhost:3000

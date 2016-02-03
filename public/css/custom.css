@@ -1,0 +1,33 @@
+.navbar-fixed-top{
+  background-color: #ff8235;
+  color: white;
+  border: none;
+  box-shadow: 3px 3px 5px rgba(0,0,0,.2);
+}
+
+#navbar ul{
+  float: right;
+}
+
+#navbar a{
+  color:white;
+}
+
+
+body{
+  background-color: #e0e0f5;
+  color: #3b457e;
+}
+
+.footer{
+  background-color: #2f3a77;
+  height: 5vh;
+}
+
+.mainHome{
+  text-align: center;
+}
+
+.input-group-btn{
+  /*width: 10%;*/
+}
