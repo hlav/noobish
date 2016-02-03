@@ -2,7 +2,7 @@ html
   head
     title eBay Search Results
     style(type='text/css').
-      body { font-family: arial,sans-serif;}
+      body { font-family: arial,sans-serif; }
   body
     h1 eBay Search Results
     #results
@@ -24,7 +24,7 @@ html
       var viewprice = item.sellingStatus[0].currentPrice[0].__value__;
       if (null != title && null != viewitem)
       {
-      html.push('<tr><td>' + '<img src="' + pic + '" border="0">' + '</td>' + '<td>' + viewprice + '</td>'
+      html.push('<tr><td>' + '<img src="' + pic + '" border="0">' + '</td>' + '<td>' + viewprice + '</td>' +
       '<td><a href="' + viewitem + '" target="_blank">' + title + '</a></td></tr>');
       }
       }
@@ -33,4 +33,4 @@ html
       document.getElementById("results").innerHTML = html.join("");
       }
       //- loading the api
-    script(src='http://svcs.ebay.com/services/search/FindingService/v1?SECURITY-APPNAME=XXXXX&OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&callback=_cb_findItemsByKeywords&REST-PAYLOAD&keywords=macbook+pro%203g&paginationInput.entriesPerPage=3')
+    script(src='http://svcs.ebay.com/services/search/FindingService/v1?SECURITY-APPNAME=Galvaniz-8de6-4bc1-a262-d7d776da1555&OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&callback=_cb_findItemsByKeywords&REST-PAYLOAD&keywords=macbook+pro%203g&paginationInput.entriesPerPage=3')

@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var Ebay = require('ebay');
+var aws = require('aws-sdk');
 
 
 
@@ -41,6 +42,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({keys:[process.env.SESSION_KEY1, process.env.SESSION_KEY2]}))
+
+var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+var S3_BUCKET = process.env.S3_BUCKET
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -121,5 +127,16 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.get('/ventures/:ven_id/bins/pic', function(req, res){
+  res.render('bins/pic');
+});
+
+app.post('/submit_form', function(req, res){
+    username = req.body.username;
+    full_name = req.body.full_name;
+    avatar_url = req.body.avatar_url;
+    update_account(username, full_name, avatar_url); // TODO: create this function
+    // TODO: Return something useful or redirect
+    });
 
 module.exports = app;
