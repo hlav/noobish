@@ -23,6 +23,10 @@ router.get('/:ven_id/bins/new', function(req, res, next) {
   })
 });
 
+router.get('/:ven_id/bins/pic', function (req, res, next) {
+  res.render('bins/pic');
+})
+
 router.get('/:ven_id/bins/:id', function(req, res, next) {
   Bins().where('id', req.params.id).first().then(function (result) {
   // console.log(result);
@@ -36,6 +40,7 @@ router.get('/:ven_id/bins/:id/edit', function(req, res, next) {
   res.render('bins/edit', { title: 'WELCOME TO EDIT PAGE', bin: result });
   })
 });
+
 
 
 
