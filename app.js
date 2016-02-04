@@ -1,11 +1,13 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+var aws = require('aws-lib');
 var Ebay = require('ebay');
-var aws = require('aws-sdk');
+// var aws = require('aws-sdk');
 
 
 
@@ -95,14 +97,10 @@ app.use('/', users);
 app.use('/auth', auth);
 app.use('/', routes);
 
-
-
 app.use('/ventures', ventures);
 app.use('/ventures', bins);
-app.use('/ventures/:v_id/bins/:b_id/comments', comments);
-app.use('/ventures/:v_id/bins/:b_id/kits', kits);
-
-
+app.use('/ventures', comments);
+app.use('/', kits);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -19,7 +19,7 @@ function(req, res, next){
   if (req.user[0] !== undefined){
     User().select().where('username', req.user[0].username).then(function(results){
       res.cookie('user', results[0].id)
-      res.render('index')
+      res.render('index', {user: req.cookies.user})
     })
   } else{
     User().select().where('fb_id', useriD).then(function(results){

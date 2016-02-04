@@ -6,7 +6,7 @@ function Users(){
   return knex('users');
 }
 
-router.get('/', function(req, res, next) {
+router.get('/:anything', function(req, res, next) {
   console.log('hitting middleware');
   if (req.cookies.username){
     next();

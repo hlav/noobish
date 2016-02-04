@@ -2,11 +2,12 @@ extends ../layout
 
 append body
   .container
-    h2 #{title}
+    h2  Bin: #{title}
     div.kit#kitter
       h2 add an item to your kit
       h3 either 
       div(class='input-group')
+      form(action='/' method='post')
         input.form-control(type='text' name = 'asin' placeholder='enter an amazon ASIN #')
         span(class='input-group-btn')
           button.purps(class='btn btn-default' type='button') Go!
