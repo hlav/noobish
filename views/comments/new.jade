@@ -1,0 +1,13 @@
+
+extends ../layout
+
+append body
+  div
+    h1 New Comment
+    form(action='/ventures/#{local.venture_id}/bins/#{local.bin_id}/comments'  method='post')
+      div
+        h2 user.username       
+      div
+        label(for="title") Comment
+        input.form-control(type="text" id="comment" name='comment' placeholder="thoughts?")
+      button.btn.btn-primary(type="submit") Submit

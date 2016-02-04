@@ -1,0 +1,12 @@
+
+extends ../layout
+
+append body
+	.container
+		h1= title
+		if bin
+			h1 Bin Title: #{bin.title}
+			h1 Bin Description: #{bin.description}
+			h1 
+				a(href='#{bin.id}/edit') Edit Link
+			

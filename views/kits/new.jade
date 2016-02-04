@@ -1,0 +1,24 @@
+extends ../layout
+
+append body
+  .container
+    h2 #{title}
+    div.kit#kitter
+      h2 add an item to your kit
+      h3 either 
+      div(class='input-group')
+        input.form-control(type='text' name = 'asin' placeholder='enter an amazon ASIN #')
+        span(class='input-group-btn')
+          button.purps(class='btn btn-default' type='button') Go!
+      h3 or 
+      h4 enter then brand and name of the item and our algorithm will find the best match
+      form
+        .halfer.input-group
+          h4 brand
+          input.form-control.left(type='text' name = 'brand1')
+        .halfer.input-group
+          h4 name
+          input.form-control.right(name = 'name1')
+        br
+        br
+        button.btn.btn-primary.purp(type="submit") Search

@@ -6,7 +6,14 @@ function Users(){
   return knex('users');
 }
 
-
+router.get('/', function(req, res, next) {
+  console.log('hitting middleware');
+  if (req.cookies.username){
+    next();
+  } else {
+    res.redirect("auth/signin");
+  }
+});
 
 router.post('/users', function(req, res, next) {
   Users().insert(req.body).then(function(val){

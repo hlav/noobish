@@ -10,6 +10,7 @@ function User(){
 return knex('users');
 }
 
+
 router.get('/facebook', passport.authenticate('facebook'))
 
 router.get('/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/'}),
@@ -33,6 +34,7 @@ router.get('/signup', function(req, res, next) {
 });
 
 router.get('/signout', function(req, res, next) {
+  console.log('signout route');
   res.clearCookie("user");
   res.redirect("/");
 });
@@ -51,13 +53,6 @@ router.get('/choose', function(req, res, next){
 })
 
 
-router.get('/:anything', function(req, res, next) {
-  if (req.cookies.username){
-    next();
-  } else {
-    res.redirect("auth/signin");
-  }
-});
 
 
 
