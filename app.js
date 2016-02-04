@@ -15,8 +15,15 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy
 var knex = require('./db/knex')
 
+
 function User(){
   return knex('users')
+}
+function Bins(){
+  return knex('bins')
+}
+function Ventures(){
+  return knex('ventures')
 }
 
 var routes = require('./routes/index');
@@ -89,10 +96,10 @@ app.use('/', routes);
 
 
 app.use('/', users);
+app.use('/', kits);
 app.use('/auth', auth);
 app.use('/ventures', ventures);
 app.use('/ventures', bins);
-app.use('/', kits);
 app.use('/ventures/:v_id/bins/:b_id/comments', comments);
 
 
@@ -127,16 +134,12 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.get('/ventures/:ven_id/bins/pic', function(req, res){
-  res.render('bins/pic');
-});
+// app.get('/ventures/:ven_id/bins/pic', function(req, res){
+//   Ventures().where('id', req.params.ven_id).first().then(function (result) {
+//     console.log(result);
+//   res.render('bins/pic', {venture: result, user: req.cookies.user});
+// })
+// });
 
-app.post('/submit_form', function(req, res){
-    username = req.body.username;
-    full_name = req.body.full_name;
-    avatar_url = req.body.avatar_url;
-    update_account(username, full_name, avatar_url); // TODO: create this function
-    // TODO: Return something useful or redirect
-    });
 
 module.exports = app;

@@ -8,10 +8,11 @@ append body
     br
     br
     br
+    //- p #{venture.venture}
     input#file_input(type='file')
     p#status Please select a file
     img#preview(src='/images/default.png')
-    form(method='POST', action='/submit_form/')
+    form(method='POST', action='/pic')
       input#avatar_url(type='hidden', name='avatar_url', value='/public/default.png')
       input(type='text', name='username', placeholder='Username')
       br
