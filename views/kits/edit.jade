@@ -1,0 +1,19 @@
+extends ../layout
+
+append body
+  .container
+    if kits
+        table
+          thead
+            tr
+              //- th Item Number
+              th Item
+              th Delete Item
+          tbody
+            for kit in kits
+              tr
+                //- td= kit.id
+                td= kit.item
+                td
+                  form(action='/ventures/#{venture_id}/bins/#{kit.bin_id}/kits/#{kit.id}/delete' method='post')
+                    input.btn.btn-link(type='submit' value='Delete')
