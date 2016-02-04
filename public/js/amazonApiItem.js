@@ -53,36 +53,34 @@ prodAdv.call("ItemSearch", options, function(err, result) {
 
 
 var obj = {}
-  module.exports =  function(itemCode, cb){
-      var product = {IdType: 'ASIN', ItemId: itemCode, ResponseGroup: 'ItemAttributes'}
-      prodAdv.call("ItemLookup", product, function(err, results) {
-        var productName = results["Items"]["Item"]["ItemAttributes"]["Title"]
-        var productUrl = results["Items"]["Item"]["DetailPageURL"]
+  module.exports =  function(itemSearch, cb){
+  var options = {SearchIndex: "All", Keywords: itemSearch}
 
-      var prices = {IdType: 'ASIN', ItemId: itemCode, ResponseGroup: 'Offers'}
-      prodAdv.call("ItemLookup", prices, function(err, results) {
-        var lowNewPrice = results["Items"]["Item"]["OfferSummary"]["LowestNewPrice"]["FormattedPrice"]
+  prodAdv.call("ItemSearch", options, function(err, result) {
+    var product = [
+      result["Items"]["Item"][0]["ASIN"],
+      result["Items"]["Item"][0]["ItemAttributes"]["Title"],
+      result["Items"]["Item"][1]["DetailPageURL"]
+    ]
 
-      var pics = {IdType: 'ASIN', ItemId: itemCode, ResponseGroup: 'Images'}
-      return prodAdv.call("ItemLookup", pics, function(err, image) {
-        var medImage = image["Items"]["Item"]["MediumImage"]["URL"]
-        obj.productName = productName
-        obj.lowPrice = lowNewPrice
-        obj.img = medImage
-        obj.url = productUrl
-        obj.asin = itemCode
-        // return obj
-          // console.log(productName);
-          // console.log('Lowest New Price = ' + lowNewPrice);
-          // console.log(medImage);
-          // console.log(productUrl);
-          // console.log("*****");
-          // console.log(obj);
-          return cb(obj)
-        })
-        })
-      })
-    }
+    var prices = {IdType: 'ASIN', ItemId: product[0], ResponseGroup: 'Offers'}
+   prodAdv.call("ItemLookup", prices, function(err, results) {
+     var lowNewPrice = results["Items"]["Item"]["OfferSummary"]["LowestNewPrice"]["FormattedPrice"]
+
+     var pics = {IdType: 'ASIN', ItemId: product[0], ResponseGroup: 'Images'}
+   return prodAdv.call("ItemLookup", pics, function(err, image) {
+     var medImage = image["Items"]["Item"]["MediumImage"]["URL"]
+       obj.productName = product[1]
+       obj.lowPrice = lowNewPrice
+       obj.img = medImage;
+       obj.url = product[2]
+       obj.asin = product[0]
+       return cb(obj)
+       })
+     })
+   })
+  }
+
       // fetchASIN('B00ZUPOMDQ')
 
   // fetchItem(brand1.val() + ' ' + name1.val())

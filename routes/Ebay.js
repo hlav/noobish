@@ -13,16 +13,13 @@
 <<<<<<< HEAD
 
 
-
-
+// router.post('/:ven_id/bins/:bin_id/comments', function(req, res, next) {
 //
-// router.post('/:ven_id/bins/:bin_id/comments/:id', function (req, res, next) {
-//   Comments().where('id', req.params.id).update(req.body)
-//   .then(function(result){
+//   Comments().insert(req.body).then(function(result){
 //     res.redirect('/ventures/'+req.params.ven_id+'/bins/'+req.params.bin_id);
 //   });
 // });
-//
+
 // router.post('/:ven_id/bins/:bin_id/comments/:id/delete', function (req, res, next) {
 //   Comments().where('id', req.params.id).del()
 //   .then(function (result) {
@@ -32,23 +29,7 @@
 =======
 
 
-// router.post('/:ven_id/bins/:bin_id/comments/:id', function (req, res, next) {
-//   Comments().where('id', req.params.id).update(req.body)
-//   .then(function(result){
-//     res.redirect('/ventures/'+req.params.ven_id+'/bins/'+req.params.bin_id);
-//   });
-// });
 //
-// router.post('/:ven_id/bins/:bin_id/comments/:id/delete', function (req, res, next) {
-//   Comments().where('id', req.params.id).del()
-//   .then(function (result) {
-//     res.redirect('/ventures/'+req.params.ven_id+'/bins/'+req.params.bin_id);
-//   })
-// })
-// >>>>>>> 23aac698cb83f08b809bbbab86e8b770c7c95996
-//
-//
-// <<<<<<< HEAD
 // function Users(){
 // return knex('users');
 // }
@@ -72,19 +53,7 @@
 //       res.render('comments/new', {local: local, user: result});
 //     })
 //   })
-// =======
 //
-// router.get('/:ven_id/bins/:bin_id/comments', function (req, res, next) {
-//   Ventures().where('id', req.params.ven_id).first().then(function(result){
-//     Bins().where('id', req.params.bin_id).first().then(function(resultB){
-//       knex('comments')
-//   .join('users', 'comments.user_id', '=', 'users.id')
-//   .select().then(function (resultJ) {
-//     res.render('comments/index', {venture: result, bin: resultB, joins: resultJ});
-// })
-// })
-// });
-// });
 // router.get('/:ven_id/bins/:bin_id/comments/new', function (req, res, next) {
 //   Users().where('id', req.cookies.user).first().then(function (result) {
 //     console.log(result);
@@ -96,4 +65,3 @@
 //   })
 //
 // router.post('/:ven_id/bins/:bin_id/comments', function(req, res, next) {
-// >>>>>>> 23aac698cb83f08b809bbbab86e8b770c7c95996

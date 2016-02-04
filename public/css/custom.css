@@ -18,7 +18,59 @@
   color:white;
 }
 
+.option{
+  margin: 15px;
+}
+.cardDisplay{
+  display: flex;
+  flex-direction: row;
+}
 
+.card{
+  height: 300px;
+  width: 375px;
+  background-color: #479DB0;
+  border-radius: 10px;
+  transition: 0.5s ease;
+  opacity: .8;
+  margin: 15px;
+  overflow: hidden;
+}
+.cards{
+  font-size: 18px;
+  /*top: px;*/
+  text-align: center;
+  color: #E0E2F5;
+  padding: 10px;
+}
+
+.card:hover{
+  -webkit-box-shadow: 2px 10px 32px 9px rgba(46,64,118,0.25);
+  -moz-box-shadow: 2px 10px 32px 9px rgba(46,64,118,0.25);
+  box-shadow: 2px 10px 32px 9px rgba(46,64,118,0.25);
+}
+.venturestitle{
+  font-size: 28px;
+}
+
+.binPreview{
+  height:170px;
+  width:auto;
+  border-radius: 10px;
+  display:block;
+  margin:auto;
+  margin-top: 20px;
+}
+
+.heart{
+  height: 20px;
+  width: auto;
+  left: 20px;
+}
+.upvote{
+  color: red;
+  height: auto;
+}
 body{
   background-color: #e0e0f5;
   color: #3b457e;

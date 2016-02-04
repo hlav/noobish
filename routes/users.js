@@ -6,33 +6,34 @@ function Users(){
   return knex('users');
 }
 
-router.get('/:anything', function(req, res, next) {
-  console.log('hitting middleware');
-  if (req.cookies.username){
-    next();
-  } else {
-    res.redirect("auth/signin");
-  }
-});
+// router.get('/ventures', function(req, res, next) {
+//   console.log('hitting middleware');
+//   if (req.cookies.user){
+//     next();
+//   } else {
+//     res.redirect("auth/signin");
+//   }
+// });
 
 router.post('/users', function(req, res, next) {
   Users().insert(req.body).then(function(val){
-    res.cookie("username", req.body.username);
-    res.redirect("/");
+    Users().where('username', req.body.username).first().then(function (result) {
+      res.cookie("user", result.id);
+      res.redirect("/");
+    })
   });
 });
 
-router.get('/search', function (req, res, next) {
-  res.render('search');
-});
+
 
 router.post('/users/login', function(req, res, next) {
     Users().where({username: req.body.username, password: req.body.password}).first().then(function(found){
-       if (found){
-         res.cookie("username", req.body.username);
-         res.redirect("/");
-       } else {
-         res.redirect("/signin", {error: 'incorrect credentials'});
+       if (found){  Users().where('username', req.body.username).first().then(function (result) {
+           res.cookie("user", result.id);
+           res.redirect("/");
+         })
+        } else {
+         res.redirect("auth/signin", {error: 'incorrect credentials'});
        }
     })
 });

@@ -3,10 +3,13 @@ extends ../layout
 
 append body
 	.container
-		h1= title
-		if bin
-			h1 Bin Title: #{bin.title}
-			h1 Bin Description: #{bin.description}
-			h1 
-				a(href='#{bin.id}/edit') Edit Link
-			
+		.cardDisplay
+			for bin in bins
+				div.card
+					h3.cards #{bin.title}
+					img(class='binPreview' src="#{bin.image}")
+					img(class="heart" src="https://s3-us-west-2.amazonaws.com/testphotosnoobish/like.png")
+					h4.upvote #{bin.upvote}
+				
+	h1 
+		a(href='/ventures/#{ventu_id}/bins/new') Add Your Shit

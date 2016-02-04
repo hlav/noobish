@@ -7,18 +7,35 @@ var knex = require('../db/knex')
 
 function Ventures(){
 return knex('ventures');
-}
+};
+function Bins(){
+return knex('bins');
+};
+function Users(){
+return knex('users');
+};
 /* GET home page. */
 router.get('/', function(req, res, next) {
   Ventures().then(function (results) {
+
+    console.log('this is working!! +' + results)
     res.render('ventures/index', {ventures: results, user: req.cookies.user});
   })
 });
-router.get('/:id', function(req, res, next) {
-  Ventures().where('id', req.params.id).first().then(function (result) {
-  res.render('ventures/show', { venture: result, title: 'show an individual venture (e.g., fishing)', user: req.cookies.user });
+
+
+
+
+router.get('/:ven_id', function(req, res, next) {
+ Bins().where('venture_id', req.params.ven_id).then(function (results) {
+   Users().where('id', results.user_id).then(function(user){
+     console.log(user);
+     res.render('ventures/show', { title: 'WELCOME TO THE BIN INDEX PAGE', ventu_id: req.params.ven_id, bins: results, user: user });
+   })
+ })
 });
-});
+
+
 
 
 
