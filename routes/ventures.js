@@ -25,10 +25,14 @@ router.get('/', function(req, res, next) {
 
 router.get('/:id', function(req, res, next){
   knex('bins').where('venture_id', req.params.id).join('users', 'bins.user_id', '=', 'users.id')
-  .select().then(function (resultJ) {
+  .select()
+  .then(function (resultJ) {
     console.log(resultJ);
 
     res.render('ventures/show', {bins: resultJ, ventu_id: req.params.id})
+  })
+  .catch(function(err){
+    console.log(err);
   })
 })
 
