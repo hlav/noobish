@@ -4,7 +4,7 @@ extends ../layout
 append body
   div
     h1 New Bin
-    form(action='/ventures/#{venture.id}/bins'  method='post')
+    form(action='/ventures/'+venture.id+'/bins'  method='post')
       div.errors
         if errors
           for error in errors

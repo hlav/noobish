@@ -20,7 +20,7 @@ return knex('kits')
 
 router.get('/:ven_id/bins/new', function(req, res, next) {
   Ventures().where('id', req.params.ven_id).first().then(function (result) {
-    console.log(req.params.ven_id);
+    console.log(result);
   res.render('bins/new', {venture: result, user: req.cookies.user});
   })
 });
@@ -47,6 +47,20 @@ router.get('/:ven_id/bins/:id/edit', function(req, res, next) {
   })
 });
 
+router.post('/:ven_id/bins', function(req, res, next) {
+  var errors = validate(req.body);
+  if (errors.length) {
+    Ventures().where('id', req.params.ven_id).first().then(function (result){
+    res.render('bins/new', {venture: result, info: req.body, errors: errors})
+  })
+  } else {
+    Bins().insert(req.body).then(function(result){
+      Bins().select().where({title: req.body.title, venture_id: req.params.ven_id}).first().then(function(result){
+        res.redirect('/ventures/'+ req.params.ven_id +'/bins/' + result.id + '/kits/new');
+      })
+    });
+  }
+});
 
 // router.post('/:ven_id/bins', function(req, res, next) {
 //  Bins().insert(req.body).then(function(result){
