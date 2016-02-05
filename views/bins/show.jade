@@ -23,9 +23,9 @@ append body
 								p #{kit[index].price}
 							br
 			.kit
-				a(href='#{bin.id}/kits/new')
+				a(href=bin_id+'/kits/new')
 					button.btn.btn-primary add an item
-				a(href='#{bin.id}/edit') 
+				a(href=bin_id+'/edit') 
 					button.btn.btn-primary edit link
 			div.binBottom
 				//- p description: #{bin.description}

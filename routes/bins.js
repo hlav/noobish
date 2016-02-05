@@ -31,11 +31,9 @@ router.get('/:ven_id/bins/new', function(req, res, next) {
 
 router.get('/:ven_id/bins/:id', function(req, res, next) {
   Bins().where('bins.id', req.params.id).leftJoin('users', 'bins.user_id', 'users.id').then(function (result) {
-    // console.log(result);
     Kits().where('bin_id', req.params.id).then(function (resultK) {
     Comments().where('comments.bin_id', req.params.id).leftJoin('users', 'comments.user_id', 'users.id').then(function (resultC) {
-    // console.log(resultC);
-    res.render('bins/show', {bins: result, comments: resultC, user: req.cookies.user, kit: resultK });
+      res.render('bins/show', {bins: result, comments: resultC, bin_id: req.params.id, user: req.cookies.user, kit: resultK });
     })
     })
     })
