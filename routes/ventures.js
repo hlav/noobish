@@ -27,7 +27,7 @@ router.get('/:id', function(req, res, next){
  knex('bins').where('venture_id', req.params.id).join('users', 'bins.user_id', '=', 'users.id')
  .select()
  .then(function (resultJ) {
-   Bins().where().then(function (results) {
+   Bins().where('venture_id', req.params.id).then(function (results) {
 // console.log(results);
    res.render('ventures/show', {bins: resultJ, bins2: results, ventu_id: req.params.id, user: req.cookies.user})
  })
