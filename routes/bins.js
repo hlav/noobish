@@ -58,7 +58,7 @@ router.post('/:ven_id/bins/:id', function (req, res, next) {
 router.post('/:ven_id/bins/:id/delete', function (req, res, next) {
   Bins().where('id', req.params.id).del()
   .then(function (result) {
-    res.redirect('/ventures');
+    res.redirect('/ventures/'+req.params.ven_id);
   })
 })
 
@@ -79,12 +79,20 @@ router.post('/:ven_id/bins/:id/delete', function (req, res, next) {
 
 
 router.post('/:ven_id/bins', function(req, res, next) {
-  Bins().insert(req.body).then(function(result){
-    Bins().select().where({title: req.body.title, venture_id: req.params.ven_id}).first().then(function(result){
-      res.redirect('/ventures/'+ req.params.ven_id +'/bins/' + result.id + '/kits/new');
-    })
-  });
+  var errors = validate(req.body);
+  if (errors.length) {
+    Ventures().where('id', req.params.ven_id).first().then(function (result){
+    res.render('bins/new', {venture: result, info: req.body, errors: errors})
+  })
+  } else {
+    Bins().insert(req.body).then(function(result){
+      Bins().select().where({title: req.body.title, venture_id: req.params.ven_id}).first().then(function(result){
+        res.redirect('/ventures/'+ req.params.ven_id +'/bins/' + result.id + '/kits/new');
+      })
+    });
+  }
 });
+
 
 //
 // router.post('/:ven_id/bins/:id', function (req, res, next) {

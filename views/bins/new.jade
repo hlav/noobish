@@ -36,6 +36,13 @@ append body
       div
         input(type="radio" name="experience" value="4")
         four since the beginning of time
+      div
+        label(for='image') Image
+        input.form-control(type='text' id='image' placeholder='Image URL' name='image' value= info ? info.image : '')
+      div
+        label Upvote
+        p
+        input(type='text' name='upvote' value='1')  
       //- div.form-group
       //-   label(for="description") Description
       //-   textarea.form-control(rows="5" id='description' name='description' placeholder="Keep it brief")
