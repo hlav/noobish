@@ -8,27 +8,6 @@
 // })
 //
 // module.exports = router;
-
-
-<<<<<<< HEAD
-
-
-// router.post('/:ven_id/bins/:bin_id/comments', function(req, res, next) {
-//
-//   Comments().insert(req.body).then(function(result){
-//     res.redirect('/ventures/'+req.params.ven_id+'/bins/'+req.params.bin_id);
-//   });
-// });
-
-// router.post('/:ven_id/bins/:bin_id/comments/:id/delete', function (req, res, next) {
-//   Comments().where('id', req.params.id).del()
-//   .then(function (result) {
-//     res.redirect('/ventures/'+req.params.ven_id+'/bins/'+req.params.bin_id);
-//   })
-// })
-=======
-
-
 //
 // function Users(){
 // return knex('users');
