@@ -22,19 +22,25 @@
   margin: 15px;
 }
 .cardDisplay{
-  display: flex;
-  flex-direction: row;
+  display: inline-block;
+  /*flex-direction: row;*/
 }
 
 .card{
-  height: 300px;
-  width: 375px;
+  display: inline-block;
+  width: 250px;
   background-color: #479DB0;
   border-radius: 10px;
   transition: 0.5s ease;
   opacity: .8;
   margin: 15px;
   overflow: hidden;
+  position: relative;
+
+}
+
+.card:hover{
+  box-shadow: 0px 10px 61px 9px rgba(0,0,0,0.46);
 }
 .cards{
   font-size: 18px;
@@ -65,7 +71,9 @@
 .heart{
   height: 20px;
   width: auto;
-  left: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 7px;
 }
 .upvote{
   color: red;
@@ -155,4 +163,38 @@ body{
 
 #kitter{
   margin-top: 5vh;
+}
+
+.homeGrid{
+  margin: 5px;
+  transition:  0.5s ease;
+}
+
+.homeGrid:hover{
+  box-shadow: 0px 10px 61px 9px rgba(0,0,0,0.46);
+}
+/*
+.homeCont{
+  margin-top: 50px;
+}*/
+
+.username{
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+  color: #ff8235;
+  text-shadow: none;
+}
+
+.upvoteDiv{
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  text-align: center;
+}
+
+.upspan{
+  position: absolute;
+  bottom: 7px;
+  left: 25px;
 }

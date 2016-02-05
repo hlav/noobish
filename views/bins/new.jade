@@ -2,7 +2,7 @@
 extends ../layout
 
 append body
-  div
+  div.container
     h1 New Bin
     form(action='/ventures/'+venture.id+'/bins'  method='post')
       div.errors
