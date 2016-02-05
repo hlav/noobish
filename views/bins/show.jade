@@ -10,9 +10,9 @@ append body
 			h1 Bin Advice: #{bin.advice}
 		
 	.kit
-				a(href='#{bin.id}/kits/new')
+				a(href='10/kits/new')
 					button.btn.btn-primary Add a item!
-				a(href='#{bin.id}/edit') 
+				//- a(href='#{bin.id}/edit') 
 					button.btn.btn-primary Edit Link
 		each item, index in kit 
 			img(src='#{kit[index].image}') 

@@ -15,6 +15,9 @@ return knex('ventures');
 function Kits(){
 return knex('kits')
 }
+function Users(){
+return knex('users')
+}
 
 
 
@@ -27,17 +30,21 @@ router.get('/:ven_id/bins/new', function(req, res, next) {
 
 
 router.get('/:ven_id/bins/:id', function(req, res, next) {
-  Bins().where('id', req.params.id).then(function (result) {
-    Kits().where('bin_id',req.params.id).then(function(payload){
-
-      Comments().where('bin_id',req.params.id).then(function(comments){
-        console.log(comments);
-      res.render('bins/show', { title: 'WELCOME TO THE BIN SHOW PAGE', bin: result[0], user: req.cookies.user, kit: payload, comments: comments });
+  Bins().where('bins.id', req.params.id).leftJoin('users', 'bins.user_id', 'users.id').then(function (result) {
+    // console.log(result);
+    Kits().where('bin_id', req.params.id).then(function (resultK) {
+    Comments().where('comments.bin_id', req.params.id).leftJoin('users', 'comments.user_id', 'users.id').then(function (resultC) {
+    // console.log(resultC);
+    res.render('bins/show', {bins: result, comments: resultC, user: req.cookies.user, kit: resultK });
+    })
+    })
     })
 
-    })
   })
-});
+
+
+
+
 
 router.get('/:ven_id/bins/:id/edit', function(req, res, next) {
   Bins().where('id', req.params.id).first().then(function (result) {
