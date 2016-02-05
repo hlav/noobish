@@ -34,3 +34,5 @@ append body
           four since the beginning of time
         br
         button.btn.btn-primary(type="submit") submit 
+      form(id='deleteForm' action='/ventures/#{bin.venture_id}/bins/#{bin.id}/delete' method='post')
+        input.deleteButton(type='submit' value='Delete')  

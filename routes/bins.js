@@ -74,7 +74,7 @@ router.get('/:ven_id/bins/:id/upvote', function (req, res, next) {
 router.post('/:ven_id/bins/:id/delete', function (req, res, next) {
   Bins().where('id', req.params.id).del()
   .then(function (result) {
-    res.redirect('/ventures');
+    res.redirect('/ventures/'+ req.params.ven_id);
   })
 })
 
