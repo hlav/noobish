@@ -15,9 +15,9 @@ append body
 				a(href='#{bin.id}/edit') 
 					button.btn.btn-primary Edit Link
 		each item, index in kit 
-			img(src='#{kit[index].picture}') 
+			img(src='#{kit[index].image}') 
 			p Item Name: #{kit[index].item} 
-			p Item Price: $#{kit[index].price}
+			p Item Price: #{kit[index].price}
 			a(href='#{kit[index].url}') Click here to visit Amazon page!!
 			br
 			br
