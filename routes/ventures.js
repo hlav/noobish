@@ -28,7 +28,11 @@ router.get('/:id', function(req, res, next){
  .select()
  .then(function (resultJ) {
    Bins().where('venture_id', req.params.id).then(function (results) {
+<<<<<<< HEAD
 // console.log(results);
+=======
+console.log(results);
+>>>>>>> 2a5493e72f9698d1047f7fe6bb4fb8e3532b723b
    res.render('ventures/show', {bins: resultJ, bins2: results, ventu_id: req.params.id, user: req.cookies.user})
  })
 })
