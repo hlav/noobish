@@ -23,7 +23,7 @@ function fetchASIN(itemCode){
     })
   })
 }
-
+// fetchASIN('B006ZJHDO6')
 //Gets item info using product description
 function fetchItem(itemSearch){
 var options = {SearchIndex: "All", Keywords: itemSearch}
@@ -50,6 +50,28 @@ prodAdv.call("ItemSearch", options, function(err, result) {
    })
  })
 }
+
+// module.exports = function fetchASIN(itemCode){
+//   var product = {IdType: 'ASIN', ItemId: itemCode, ResponseGroup: 'ItemAttributes'}
+//   prodAdv.call("ItemLookup", product, function(err, results) {
+//     var productName = results["Items"]["Item"]["ItemAttributes"]["Title"]
+//     var productUrl = results["Items"]["Item"]["DetailPageURL"]
+//
+//   var prices = {IdType: 'ASIN', ItemId: itemCode, ResponseGroup: 'Offers'}
+//   prodAdv.call("ItemLookup", prices, function(err, results) {
+//     var lowNewPrice = results["Items"]["Item"]["OfferSummary"]["LowestNewPrice"]["FormattedPrice"]
+//
+//   var pics = {IdType: 'ASIN', ItemId: itemCode, ResponseGroup: 'Images'}
+//   prodAdv.call("ItemLookup", pics, function(err, image) {
+//     var medImage = image["Items"]["Item"]["MediumImage"]["URL"]
+//       console.log(productName);
+//       console.log('Lowest New Price = ' + lowNewPrice);
+//       console.log(medImage);
+//       console.log(productUrl);
+//       })
+//     })
+//   })
+// }
 
 
 var obj = {}

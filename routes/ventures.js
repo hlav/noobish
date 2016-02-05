@@ -23,17 +23,34 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/:id', function(req, res, next){
+  knex('bins').where('venture_id', req.params.id).join('users', 'bins.user_id', '=', 'users.id')
+  .select().then(function (resultJ) {
+    console.log(resultJ);
+
+    res.render('ventures/show', {bins: resultJ, ventu_id: req.params.id})
+  })
+})
+
+// router.get('/:ven_id/bins/:bin_id/comments', function (req, res, next) {
+//   Ventures().where('id', req.params.ven_id).first().then(function(result){
+//     Bins().where('id', req.params.bin_id).first().then(function(resultB){
+//       knex('comments')
+//   .join('users', 'comments.user_id', '=', 'users.id')
+//   .select().then(function (resultJ) {
+//     res.render('comments/index', {venture: result, bin: resultB, joins: resultJ});
 
 
-
-router.get('/:ven_id', function(req, res, next) {
- Bins().where('venture_id', req.params.ven_id).then(function (results) {
-   Users().where('id', results.user_id).then(function(user){
-     console.log(user);
-     res.render('ventures/show', { title: 'WELCOME TO THE BIN INDEX PAGE', ventu_id: req.params.ven_id, bins: results, user: user });
-   })
- })
-});
+// router.get('/:ven_id', function(req, res, next) {
+//  Bins().where('venture_id', req.params.ven_id).then(function (results) {
+//    console.log(req.params)
+//
+//    Users().where('id', results.user_id).then(function(user){
+//      console.log('this is user: ' + user);
+//      res.render('ventures/show', { title: 'WELCOME TO THE BIN INDEX PAGE', ventu_id: req.params.ven_id, bins: results, user: user });
+//    })
+//  })
+// });
 
 
 

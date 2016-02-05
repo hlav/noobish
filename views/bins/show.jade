@@ -8,6 +8,18 @@ append body
 			h1 Bin Title: #{bin.title}
 			h1 Bin Description: #{bin.description}
 			h1 Bin Advice: #{bin.advice}
-				p
-				a(href='#{bin.id}/edit') Edit Link
+		
+	.kit
+				a(href='#{bin.id}/kits/new')
+					button.btn.btn-primary Add a item!
+				a(href='#{bin.id}/edit') 
+					button.btn.btn-primary Edit Link
+		each item, index in kit 
+			img(src='#{kit[index].picture}') 
+			p Item Name: #{kit[index].item} 
+			p Item Price: $#{kit[index].price}
+			a(href='#{kit[index].url}') Click here to visit Amazon page!!
+			br
+			br
+				
 			

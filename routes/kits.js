@@ -61,6 +61,7 @@ router.post('/ventures/:ven_id/bins/:bin_id/kits', function(req, res, next){
   }
 })
 
+
 router.get('/ventures/:ven_id/bins/:bin_id/kits/edit', function (req, res, next) {
   Kits().where('bin_id', req.params.bin_id).then(function (result) {
     res.render('kits/edit', {kits: result})
@@ -72,5 +73,6 @@ router.post('/ventures/:ven_id/bins/:bin_id/kits/:id/delete', function (req, res
     res.redirect('/ventures/'+req.params.ven_id+'/bins/'+req.params.bin_id+'/kits/edit')
   })
 })
+
 
 module.exports = router;
