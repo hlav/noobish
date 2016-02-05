@@ -27,6 +27,7 @@ var auth = require('./routes/auth');
 var comments = require('./routes/comments');
 var kits = require('./routes/kits')
 var bins = require('./routes/bins')
+var upvotes = require('./routes/upvotes')
 
 
 var app = express();
@@ -87,6 +88,7 @@ app.use('/ventures', ventures);
 app.use('/ventures', bins);
 app.use('/ventures', comments);
 app.use('/', kits);
+app.use('/', upvotes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

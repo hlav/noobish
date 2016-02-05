@@ -59,6 +59,14 @@ router.post('/:ven_id/bins/:id', function (req, res, next) {
   });
 });
 
+router.post('/:ven_id/bins/:id/upvote', function (req, res, next) {
+  console.log( req.params.id + ' upvoted!!');
+});
+
+router.get('/:ven_id/bins/:id/upvote', function (req, res, next) {
+  console.log('get')
+})
+
 router.post('/:ven_id/bins/:id/delete', function (req, res, next) {
   Bins().where('id', req.params.id).del()
   .then(function (result) {
