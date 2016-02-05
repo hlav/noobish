@@ -3,23 +3,37 @@ extends ../layout
 
 append body
 	.container
-		h1= title
 		if bin
-			h1 Bin Title: #{bin.title}
-			h1 Bin Description: #{bin.description}
-			h1 Bin Advice: #{bin.advice}
-		
-	.kit
-				a(href='10/kits/new')
-					button.btn.btn-primary Add a item!
-				//- a(href='#{bin.id}/edit') 
-					button.btn.btn-primary Edit Link
-		each item, index in kit 
-			img(src='#{kit[index].image}') 
-			p Item Name: #{kit[index].item} 
-			p Item Price: #{kit[index].price}
-			a(href='#{kit[index].url}') Click here to visit Amazon page!!
-			br
-			br
+<
+			div.binTits
+				div
+					a(href='/ventures/#{bin.venture_id}')
+						span.back(class="glyphicon glyphicon-chevron-left" aria-hidden="true") 
+						span.back back to bins
+				h1.binTitle #{bin.title}
+				img.binUserImg(src='/images/placeholder.png')
+				p User: #{bin.user_id}
+		div
+			.scrollDiv
+				each item, index in kit 
+					a(href='#{kit[index].url}')
+						div.kitItem
+							img.kitImg(src='#{kit[index].image}') 
+							.kitText
+								p #{kit[index].item} 
+								p #{kit[index].price}
+							br
+			.kit
+				a(href='#{bin.id}/kits/new')
+					button.btn.btn-primary add an item
+				a(href='#{bin.id}/edit') 
+					button.btn.btn-primary edit link
+			div.binBottom
+				//- p description: #{bin.description}
+				p "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio officiis aperiam facere sit fugiat vitae, veritatis quod voluptate velit rerum quia, blanditiis explicabo suscipit dolore maiores necessitatibus a ducimus illo.""
+				//- p advice from user: #{bin.advice}
+				p "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore accusantium assumenda repellat libero molestiae, enim eaque consequuntur maxime ipsam sunt eius doloribus praesentium, laborum voluptates animi nemo reiciendis corrupti excepturi.""
+			
+
 				
 			
