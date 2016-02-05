@@ -18,7 +18,6 @@ return knex('users');
 router.get('/', function(req, res, next) {
   Ventures().then(function (results) {
 
-    console.log('this is working!! +' + results)
     res.render('ventures/index', {ventures: results, user: req.cookies.user});
   })
 });
@@ -27,13 +26,12 @@ router.get('/:id', function(req, res, next){
   knex('bins').where('venture_id', req.params.id).join('users', 'bins.user_id', '=', 'users.id')
   .select()
   .then(function (resultJ) {
-    console.log(resultJ);
-
-    res.render('ventures/show', {bins: resultJ, ventu_id: req.params.id})
+    Bins().then(function (results) {
+    res.render('ventures/show', {bins: resultJ, bins2: results, ventu_id: req.params.id})
   })
+})
   .catch(function(err){
-    console.log(err);
-  })
+})
 })
 
 // router.get('/:ven_id/bins/:bin_id/comments', function (req, res, next) {
