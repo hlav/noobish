@@ -8,6 +8,7 @@
   color: white;
   border: none;
   box-shadow: 3px 3px 5px rgba(0,0,0,.2);
+  font-size: 1.3em;
 }
 
 #navbar ul{
@@ -29,6 +30,7 @@
 .card{
   display: inline-block;
   width: 250px;
+  height: 265px;
   background-color: #479DB0;
   border-radius: 10px;
   transition: 0.5s ease;
@@ -43,7 +45,7 @@
   box-shadow: 0px 10px 61px 9px rgba(0,0,0,0.46);
 }
 .cards{
-  font-size: 18px;
+  font-size: 20px;
   /*top: px;*/
   text-align: center;
   color: #E0E2F5;
@@ -125,6 +127,7 @@ body{
 
 .navbar-header .navbar-brand{
   color: white;
+  font-size: 2em;
 }
 
 .halfer{
@@ -140,7 +143,9 @@ body{
 }
 
 .kit{
-  text-align: center;
+  float: right;
+  clear: both;
+  margin-top: 10px;
 }
 
 .butcont{
@@ -162,7 +167,7 @@ body{
 }
 
 #kitter{
-  margin-top: 5vh;
+  text-align: center;
 }
 
 .homeGrid{
@@ -180,7 +185,7 @@ body{
 
 .username{
   position: absolute;
-  right: 5px;
+  right: 8px;
   bottom: 0;
   color: #ff8235;
   text-shadow: none;
@@ -197,4 +202,70 @@ body{
   position: absolute;
   bottom: 7px;
   left: 25px;
+  color: white;
+}
+
+.kitItem{
+  clear: both;
+  background-color: white;
+  height: 100px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.kitImg{
+  float: left;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.scrollDiv{
+  margin: 0 auto;
+  width: 42vw;
+  margin-top: 100px;
+  height: 40vh;
+  overflow-y: scroll;
+  float: right;
+  border: 1px solid rgba(0,0,0,.18);
+  padding: 10px;
+  background: white;
+}
+
+.binTits{
+  float: left;
+}
+
+.binUserImg{
+  width: 345px;
+}
+
+.binBottom{
+  margin-top: 30px;
+  clear: both;
+  float: right;
+  width: 42vw;
+  text-align: center;
+  font-size: 20px;
+}
+
+.back{
+  margin-top: 10px;
+  color: #CF434E;
+}
+
+.binTitle{
+  text-align: center;
+}
+
+.add{
+  border: 5px solid #4466d2;
+  background: none;
+  text-align: center;
+}
+
+.add span{
+  font-size: 100px;
+  color: #4466d2;
+  text-align: center;
+margin-top: 30%;
 }
